@@ -8,14 +8,12 @@ export const FileContextProvider = ({children}) => {
     const [file, setFile] = useState(null);  
       function parseFile(e){
         let fileObj = e.target.files[0];
-        console.log(fileObj);
 
         //just pass the fileObj as parameter
         ExcelRenderer(fileObj, (err, resp) => {
           if (err) {
             console.log(err);
           } else {
-            console.log(resp.rows,resp.cols)
             setFile({
               cols: resp.cols,
               rows: resp.rows
